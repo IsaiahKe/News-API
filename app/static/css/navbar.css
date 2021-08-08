@@ -1,0 +1,18 @@
+.navholder{
+    width:100%;max-height: fit-content; background-color: chocolate;min-height:150px;
+}
+.navholder ul{
+    list-style: none;
+}
+.navholder ul li{
+    position: relative;float:left;text-align: end;margin-top: 50px;margin-left: 40px;cursor: pointer;
+}
+.navholder ul li:hover{
+    color:white;
+}
+.title{
+    height:60px;width:300px;background-color: white;
+}
+.navmenu{
+    width:100%;justify-content: end;align-items: center;height:100px;
+}
