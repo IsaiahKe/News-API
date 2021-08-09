@@ -1,0 +1,50 @@
+{%extends 'bootstrap/base.html'%}
+
+{%macro displayArticle(articleList)%}
+
+{%for article in articleList %}
+<div class='body'>
+
+    <div class="card news">
+        <div class="heading"><a href="{{article.url}}">
+                <h2>{{article.title}}</h2>
+            </a></div>
+        <div class="pickholder">
+            <img src="{{article.urltoimage}}" alt="image" height="400px" width="500px" class='img-responsive'>
+        </div>
+        <div class="col-5 contentholder">
+            <h4>{{article.description}}</h4>
+        </div>
+        <div class='options'> <a href="{{article.url}}"><button>Read More</button></a>
+            <br><br>
+            Published On: {{article.publishedat.replace('T',' ').replace('Z',' Hrs')}}
+        </div>
+    </div>
+
+</div>
+{%endfor%}
+{%endmacro%}
+
+{%macro displaySource(sourcelist)%}
+{%for source in sourcelist%}
+{%if source.language=='en'%}
+<div class='body'>
+
+    <div class="card sources">
+        <div class="title">
+            <h2>{{source.name}}</h2>
+        </div>
+        <div class="sourcedescription">
+            <h4><u>Description</u></h4>{{source.description}}
+        </div>
+        News Type: {{source.category.capitalize()}}<br>
+        {%if source.language=='en'%}
+
+        <div class="">Language: English </div><br>
+        {%endif%}
+        <a href='{{source.url}}'><button>More about</button></a>
+    </div>
+</div>
+{%endif%}
+{%endfor%}
+{%endmacro%}
