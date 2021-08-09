@@ -9,10 +9,10 @@ Source=source.Source
 api_key=app.config['API_KEY']
 path= app.config['API_PATH']
 #source_path='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
-headline='https://newsapi.org/v2/top-headlines?country={}&apiKey={}'
 all='https://newsapi.org/v2/top-headlines/sources?apiKey={}'
-def get_article(content):
-    get_url=path.format(content,api_key)
+categorypath='https://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'
+def get_article():
+    get_url=path.format(api_key)
     with urllib.request.urlopen(get_url) as url:
       get_article_data=url.read()
       get_response=json.loads(get_article_data)
@@ -70,3 +70,18 @@ def maptosource(datamap):
             source_data.append(new_source)
         
     return source_data
+
+def get_by_category(country,category):
+    get_url=categorypath.format(country,category,api_key)
+    with urllib.request.urlopen(get_url) as url:
+        get_article_data=url.read()
+        get_response=json.loads(get_article_data)
+        
+        get_results=None
+        print(get_response)
+        if get_response['articles']:
+            get_response_list=get_response['articles']
+            get_results=process_data(get_response_list)
+            
+    return get_results
+    
