@@ -1,3 +1,31 @@
 .holder{
-    height:600px !important;width:600px !important;float: left !important;
+    height:600px !important;max-width:80% !important;float: left !important; min-width:fit-content
+}
+.htitle{
+    text-align: center;color: darkblue;
+}
+.title{
+    text-align: center;color: darkblue;margin:0px auto;
+}
+.news{
+    height:750px !important;width:600px !important;height:fit-content !important;overflow-y: auto !important;border: 1px solid black;justify-content: space-between;float: left;margin-right: 10px; margin-top: 10px;
+}
+.sources{
+    min-width:300px;height:310px;float:left;width: 400px;margin: 5px;border: 1px solid black;padding-left: 5px;justify-content: space-between;
+}
+.pickholder{
+width:400px;height:400px;margin-left: 20px;
+}
+.contentholder{
+width:100%;height: 80px;padding-left: 20px;
+}
+.heading{
+    width:100%;height: 150px;overflow: auto;text-align: center;
+}
+.options{
+   display: flex;justify-content:flex-end;
+}
+
+.sourcedescription{
+    height:130px;width:100%;overflow-y: hidden;
 }
