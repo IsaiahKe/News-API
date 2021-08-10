@@ -9,7 +9,7 @@ path=None
 def config_request(app):
     global api_key,path
     api_key=app.config['API_KEY']
-   
+    path=app.config['API_PATH']
     
 all='https://newsapi.org/v2/top-headlines/sources?apiKey={}'
 categorypath='https://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'
