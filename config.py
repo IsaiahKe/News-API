@@ -1,9 +1,8 @@
-from instance.config import API_KEY, SECRET_KEY
 import os
 class Config:
     API_PATH='https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
-    API_KEY=os.environ.get(API_KEY)
-    SECRET_KEY=os.environ.get(SECRET_KEY)
+    API_KEY=os.environ.get('API_KEY')
+    SECRET_KEY=os.environ.get('SECRET_KEY')
    
 class DevConfig(Config):
     
