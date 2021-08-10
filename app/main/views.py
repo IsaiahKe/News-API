@@ -1,18 +1,17 @@
-from datetime import date
-from app.request import get_article, get_by_category, get_by_source
-from flask import render_template
-from app import app
 
-@app.route('/')
+from instance.config import API_KEY
+from ..request import get_article, get_by_category, get_by_source
+from flask import render_template
+from . import main
+
+@main.route('/')
 def index():
 
-    message="isaiah morara"
-    timeframe= date.today()
     me=get_article()
     sources=get_by_source()
-    return render_template('index.html',message=message,me=me,sources=sources)
+    return render_template('index.html',me=me,sources=sources)
 
-@app.route('/source')
+@main.route('/source')
 def source():
     '''
     define what is to be returned 
@@ -20,7 +19,7 @@ def source():
     us=get_by_source()
     return render_template('sources.html',us=us)
 
-@app.route('/category/<type>')
+@main.route('/category/<type>')
 def category(type):
     category=get_by_category('us',type)
     heading=type

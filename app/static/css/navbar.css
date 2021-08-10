@@ -1,5 +1,8 @@
 .navholder{
-    width:100%;max-height: fit-content; background-color: chocolate;min-height:150px;
+    width:100%;max-height: fit-content; background-color: chocolate;min-height:150px;min-width: 500px;
+}
+.navholder::selection{
+    background-color: none;
 }
 .navholder ul{
     list-style: none;
@@ -10,9 +13,12 @@
 .navholder ul li:hover{
     color:white;
 }
-.title{
+.htitle{
     height:60px;width:300px;background-color: white;
 }
 .navmenu{
     width:100%;justify-content: end;align-items: center;height:100px;
+}
+.navholder a {
+    text-decoration: none !important;color: black;
 }

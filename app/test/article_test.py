@@ -1,4 +1,4 @@
-from article import Article
+from app.models import Article
 import unittest
 
 class Article_test(unittest.TestCase):

@@ -1,4 +1,4 @@
-from source import Source
+from app.models import Source
 import unittest
 
 class TestSource(unittest.TestCase):

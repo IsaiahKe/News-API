@@ -1,18 +1,21 @@
-from datetime import date
-from app import app
-from .models import article
-from .models import source
+from config import Config
+import app
 import urllib.request,json
+from .models import Article,Source
 
-Article=article.Article
-Source=source.Source
-api_key=app.config['API_KEY']
-path= app.config['API_PATH']
-#source_path='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
+api_key=None
+path=None
+
+def config_request(app):
+    global api_key,path
+    api_key=app.config['API_KEY']
+   
+    
 all='https://newsapi.org/v2/top-headlines/sources?apiKey={}'
 categorypath='https://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'
+
 def get_article():
-    get_url=path.format(api_key)
+    get_url=path.format('3f63024751d3416cb877af3a23f0f3da')
     with urllib.request.urlopen(get_url) as url:
       get_article_data=url.read()
       get_response=json.loads(get_article_data)
@@ -42,7 +45,7 @@ def process_data(response):
             
     return article_results
 def get_by_source():
-    get_url=all.format(api_key)
+    get_url=all.format('3f63024751d3416cb877af3a23f0f3da')
     with urllib.request.urlopen(get_url) as url:
         json_response=url.read()
         response=json.loads(json_response)
@@ -72,7 +75,7 @@ def maptosource(datamap):
     return source_data
 
 def get_by_category(country,category):
-    get_url=categorypath.format(country,category,api_key)
+    get_url=categorypath.format(country,category,'3f63024751d3416cb877af3a23f0f3da')
     with urllib.request.urlopen(get_url) as url:
         get_article_data=url.read()
         get_response=json.loads(get_article_data)
