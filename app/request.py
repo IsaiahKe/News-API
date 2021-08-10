@@ -1,5 +1,3 @@
-from config import Config
-import app
 import urllib.request,json
 from .models import Article,Source
 
@@ -15,7 +13,7 @@ all='https://newsapi.org/v2/top-headlines/sources?apiKey={}'
 categorypath='https://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'
 
 def get_article():
-    get_url=path.format('3f63024751d3416cb877af3a23f0f3da')
+    get_url=path.format(api_key)
     with urllib.request.urlopen(get_url) as url:
       get_article_data=url.read()
       get_response=json.loads(get_article_data)
@@ -45,7 +43,7 @@ def process_data(response):
             
     return article_results
 def get_by_source():
-    get_url=all.format('3f63024751d3416cb877af3a23f0f3da')
+    get_url=all.format(api_key)
     with urllib.request.urlopen(get_url) as url:
         json_response=url.read()
         response=json.loads(json_response)
@@ -75,7 +73,7 @@ def maptosource(datamap):
     return source_data
 
 def get_by_category(country,category):
-    get_url=categorypath.format(country,category,'3f63024751d3416cb877af3a23f0f3da')
+    get_url=categorypath.format(country,category,api_key)
     with urllib.request.urlopen(get_url) as url:
         get_article_data=url.read()
         get_response=json.loads(get_article_data)
