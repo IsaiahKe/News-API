@@ -4,20 +4,26 @@ In order to access news sources and news from most parts of the world, the News 
 
 ## How to install
     -Download the zip folder or 
+
     ```bash 
     git clone <repo link>
     ```
+
     -install flask , virtual environment, and activate the environment
     -Visit NEWS API and regester to get your API key and put your secret and  
     API key in instance config file and your executable file as required
     -activate the environment by
+
      ```bash 
      $ source virtual/bin/activate 
      ```
+
     -install in the packages that are required by using
+
      ```python
       pip install <pkg name>
       ```
+      
     -Deploy app in heroku view [here](https://www.heroku.com/)
     
 ## License
